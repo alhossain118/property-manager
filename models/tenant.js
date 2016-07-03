@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 let tenantSchema = new mongoose.Schema({
   name: String,
-  number: Number,
+  number: String,
   email: {type:String, match: /^\w+@\w+\.\w+$/},
   property: {type: mongoose.Schema.Types.ObjectId, ref: 'Property'}
 })

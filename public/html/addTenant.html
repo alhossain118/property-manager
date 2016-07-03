@@ -1,0 +1,72 @@
+<h1>addTenant</h1>
+
+<form ng-submit='submitTenant(tenant)'>
+
+  <div class="form-group">
+    <label>Name:</label>
+    <input type="text" class="form-control" ng-model='tenant.name'>
+  </div>
+
+  <div class="form-group">
+    <label>Phone Number:</label>
+    <input type="text" class="form-control" ng-model='tenant.number'>
+  </div>
+
+  <div class="form-group">
+    <label>Email:</label>
+    <input type="text" class="form-control" ng-model='tenant.email'>
+  </div>
+
+
+<button class='btn btn-primary glyphicon glyphicon-thumbs-up'>Add Property <span class='glyphicon glyphicon-blackboard'></span></button>
+</form>
+
+<table class='table'>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Edit/Delete</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat='tenant in tenantsArray track by $index'>
+    <td>{{tenant.name}}</td>
+    <td>{{tenant.email}}</td>
+    <td>
+      <button class='btn btn-warning' ng-click='editTenant(tenant,$index)'><span class='glyphicon glyphicon-ok'></span></button>
+      <button class='btn btn-danger' ng-click='removeTenant(tenant._id,$index)'><span class='glyphicon glyphicon-remove'></span></button>
+    </td>
+
+
+  </tr>
+
+</tbody>
+
+<tfoot>
+
+
+</tfoot>
+</table>
+
+<form ng-submit='submitTenantEdit(editTenantObject)' ng-hide='boolCheck'>
+
+  <div class="form-group">
+    <label>Name:</label>
+    <input type="text" class="form-control" ng-model='editTenantObject.name'>
+  </div>
+
+  <div class="form-group">
+    <label>Phone Number:</label>
+    <input type="text" class="form-control" ng-model='editTenantObject.number'>
+  </div>
+
+  <div class="form-group">
+    <label>Email:</label>
+    <input type="text" class="form-control" ng-model='editTenantObject.email'>
+  </div>
+
+
+<button class='btn btn-primary glyphicon glyphicon-thumbs-up'>Add Property <span class='glyphicon glyphicon-blackboard'></span></button>
+</form>

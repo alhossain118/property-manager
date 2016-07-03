@@ -23,11 +23,13 @@ router.route('/:id')
       res.status(err ? 400 : 200).send(err || property)
     })
   })
-  .put((req,res) => {
-    Property.findIdAndUpdate(req.param.id, req.body, {new:true}, (err,property) =>{
-      res.status(err ? 400 : 200).send(err || property)
-    })
+
+  .put((req, res) => {
+    Property.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, property) => {
+      res.status(err ? 400 : 200).send(err || property);      
+    });
   })
+
   .delete((req,res) => {
     Property.findByIdAndRemove(req.params.id, err => {
       res.status(err ? 400 : 200).send(err)
